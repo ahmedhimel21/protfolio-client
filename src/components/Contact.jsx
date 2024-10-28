@@ -40,7 +40,7 @@ export const Contact = () => {
                           style={{ height: "60px", width: "60px" }}
                         ></AiOutlineMail>
                         <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-                          Email <br /> sahabuddinahmed2125@gmail.com
+                          Email <br /> sahabuddin.ahmed2125@gmail.com
                         </p>
                       </div>
                       <div className="d-flex align-items-center gap-4 mt-3">
