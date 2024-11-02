@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub, FaEdge } from "react-icons/fa";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Badge } from "react-bootstrap";
 import "../styles/ProjectDetailsCard.css"; // Custom CSS for animation
 
 export const ProjectDetailsCard = ({
@@ -11,6 +11,7 @@ export const ProjectDetailsCard = ({
   liveLink,
   category,
   createdAt,
+  skills,
 }) => {
   return (
     <div className="project-details-card" style={{ marginTop: "100px" }}>
@@ -19,10 +20,18 @@ export const ProjectDetailsCard = ({
           <Card.Img variant="top" src={imgUrl} className="project-img" />
         </div>
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
+          <Card.Title className="title">{title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted category">
             Category: {category}
           </Card.Subtitle>
+          <div className="skills-section mb-3">
+            {skills?.length &&
+              skills?.map((skill) => (
+                <Badge key={skill} className="skill-badge">
+                  {skill}
+                </Badge>
+              ))}
+          </div>
           <Card.Text className="description">{description}</Card.Text>
           <div className="links d-flex justify-content-between align-items-center">
             <Button variant="outline-primary" href={liveLink} target="_blank">

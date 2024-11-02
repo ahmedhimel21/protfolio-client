@@ -7,6 +7,7 @@ import {
   FaDocker,
   FaAws,
   FaGithub,
+  FaAmazonPay,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -25,6 +26,12 @@ import {
   SiVisualstudiocode,
   SiFigma,
   SiAngular,
+  // SiShadcnui,
+  SiAntdesign,
+  SiDaisyui,
+  SiMui,
+  SiReactrouter,
+  // SiZod,
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
 
@@ -40,6 +47,11 @@ export const icons = {
   typeScript: <SiTypescript className="w-25 h-25" />,
   redux: <SiReduxsaga className="w-25 h-25" />,
   nextjs: <SiNextdotjs className="w-25 h-25" />,
+  antd: <SiAntdesign className="w-25 h-25" />,
+  daisyUI: <SiDaisyui className="w-25 h-25" />,
+  MUI: <SiMui className="w-25 h-25" />,
+  ReactRouter: <SiReactrouter className="w-25 h-25" />,
+  aamarpay: <FaAmazonPay className="w-25 h-25" />,
 
   // Backend Skills
   node: <FaNodeJs className="w-25 h-25" />,

@@ -11,7 +11,6 @@ const Login = () => {
   const password = import.meta.env.VITE_DEFAULT_PASS;
   const secret = import.meta.env.VITE_SECRET;
   const onSubmit = (data) => {
-    console.log(data);
     if (data?.email === email && data?.password === password) {
       window.location.href = `/${secret}`;
     } else {

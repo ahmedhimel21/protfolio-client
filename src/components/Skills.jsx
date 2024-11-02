@@ -1,15 +1,12 @@
 import colorSharp from "../assets/img/color-sharp.png";
-import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaGithub, FaHtml5, FaNodeJs } from "react-icons/fa";
 
-import { useState } from "react";
 import { useGetSkillsQuery } from "../redux/features/skills/skillEndpoints";
 import { icons } from "../constant/Icons";
 import "../styles/SkillSection.css";
-import { SiMongodb, SiPostman, SiTypescript } from "react-icons/si";
 
 export const Skills = () => {
   const { data } = useGetSkillsQuery(undefined);
-  console.log(data);
 
   return (
     <section id="skills">
@@ -71,7 +68,7 @@ export const Skills = () => {
                       <div className="col-md-3 col-6 mb-4" key={skill._id}>
                         <div className="skill-card others">
                           {icons[skill.name] || (
-                            <FaHtml5 className="skill-icon" />
+                            <FaGithub className="skill-icon" />
                           )}
                           <div className="skill-name">{skill.name}</div>
                         </div>

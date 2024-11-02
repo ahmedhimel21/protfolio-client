@@ -25,6 +25,11 @@ const skillType = [
   "mongodbCompass",
   "vscode",
   "figma",
+  "aamarpay",
+  "ReactRouter",
+  "MUI",
+  "daisyUI",
+  "antd",
 ];
 
 export const skillTypeOptions = skillType.map((item) => {

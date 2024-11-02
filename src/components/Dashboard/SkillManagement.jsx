@@ -23,7 +23,6 @@ const SkillManagement = () => {
   const [createSkill] = useCreateSkillMutation();
 
   const onSubmit = async (data) => {
-    console.log(data);
     const toastId = toast.loading("Creating skill...");
     try {
       const res = await createSkill(data);

@@ -6,6 +6,9 @@ export const projectCreateValidationSchema = z.object({
   github: z.string({ required_error: "github link field is required" }),
   liveLink: z.string({ required_error: "live link field is required" }),
   category: z.string({ required_error: "category field is required" }),
+  skills: z
+    .array(z.string())
+    .nonempty({ message: "At least one skill is required" }),
   image: z
     .instanceof(File)
     .refine((file) => file.size <= 5 * 1024 * 1024, {

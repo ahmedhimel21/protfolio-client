@@ -10,6 +10,7 @@ import { projectCreateValidationSchema } from "../../schema/projectCreateValidat
 import { toast } from "sonner";
 import handleImageUpload from "../../utils/handleImageUpload";
 import { useCreateProjectMutation } from "../../redux/features/project/projectEndpoints";
+import { skillTypeOptions } from "../../constant/skillOption";
 
 const ProjectManagement = () => {
   const [createProject] = useCreateProjectMutation();
@@ -24,6 +25,7 @@ const ProjectManagement = () => {
       liveLink: value?.liveLink,
       category: value?.category,
       imgUrl: image,
+      skills: value?.skills,
     };
 
     try {
@@ -67,6 +69,12 @@ const ProjectManagement = () => {
             label="Category"
             name="category"
             options={projectTypeOptions}
+          ></ReuseableSelect>
+          <ReuseableSelect
+            mode={"multiple"}
+            label="Technology"
+            name="skills"
+            options={skillTypeOptions}
           ></ReuseableSelect>
           <Controller
             name="image"

@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px;
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 600px;
   height: auto;
   min-height: 100vh;
   box-sizing: border-box;
@@ -14,10 +14,12 @@
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 500px; /* Limits max width of the card */
+  background-color: #f9f9f9;
+  border: none;
 }
 
 @media (max-width: 768px) {
@@ -28,7 +30,7 @@
 
 .animated-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 .img-container {
@@ -40,17 +42,49 @@
 .project-img {
   transition: transform 0.3s ease;
   width: 100%;
-  height: auto;
+  height: 250px;
   object-fit: cover;
 }
 
 .animated-card:hover .project-img {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.skills-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-badge {
+  font-size: 0.75rem;
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 12px;
+  transition: background-color 0.3s;
+}
+
+.skill-badge:hover {
+  background-color: #0056b3;
 }
 
 .description {
   margin: 10px 0;
   font-size: 0.95rem;
+  color: #555;
 }
 
 .links {
