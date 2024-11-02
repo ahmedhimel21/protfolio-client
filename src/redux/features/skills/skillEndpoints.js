@@ -10,6 +10,7 @@ const skillEndpoints = baseApi.injectEndpoints({
           body: args,
         };
       },
+      invalidatesTags: ["skills"],
     }),
     getSkills: builder.query({
       query: () => {
@@ -18,6 +19,7 @@ const skillEndpoints = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["skills"],
     }),
   }),
 });

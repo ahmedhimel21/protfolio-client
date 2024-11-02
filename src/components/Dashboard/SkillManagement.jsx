@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { useFormContext } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { skillCreateValidationSchema } from "../../schema/skillCreateValidationSchema";
+import { categoryTypeOptions } from "../../constant/categoryOptions";
 
 const SkillManagement = () => {
   const { data } = useGetSkillsQuery(undefined);
@@ -22,6 +23,7 @@ const SkillManagement = () => {
   const [createSkill] = useCreateSkillMutation();
 
   const onSubmit = async (data) => {
+    console.log(data);
     const toastId = toast.loading("Creating skill...");
     try {
       const res = await createSkill(data);
@@ -45,6 +47,11 @@ const SkillManagement = () => {
             label="Name"
             name="name"
             options={filteredSkillType}
+          ></ReuseableSelect>
+          <ReuseableSelect
+            label="Category"
+            name="category"
+            options={categoryTypeOptions}
           ></ReuseableSelect>
           <ReuseableInput
             type="text"

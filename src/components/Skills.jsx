@@ -1,68 +1,92 @@
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import colorSharp from "../assets/img/color-sharp.png";
-import { FaHtml5 } from "react-icons/fa";
+import { FaGithub, FaHtml5, FaNodeJs, FaReact } from "react-icons/fa";
 
 import { useState } from "react";
 import { useGetSkillsQuery } from "../redux/features/skills/skillEndpoints";
 import { icons } from "../constant/Icons";
+import "../styles/SkillSection.css";
+import { SiMongodb, SiPostman, SiTypescript } from "react-icons/si";
 
 export const Skills = () => {
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 4,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
   const { data } = useGetSkillsQuery(undefined);
+  console.log(data);
 
   return (
-    <section className="skill" id="skills">
+    <section id="skills">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <div className="skill-bx wow zoomIn">
+            <div className="text-center">
               <h2>Skills</h2>
               <p>
                 Following are some of the skills I have acquired after working
                 for a long time.
               </p>
-              {data?.data.length && (
-                <Carousel
-                  responsive={responsive}
-                  infinite={true}
-                  className="owl-carousel owl-theme skill-slider"
-                >
-                  {data?.data?.map((skill, index) => {
-                    return (
-                      <div className="item" key={index}>
-                        {icons[skill.name] || <FaHtml5 className="w-25 h-25" />}
-                        <h5>{skill?.title}</h5>
+            </div>
+
+            <div className="container skill-section">
+              {/* Frontend Development Section */}
+              <div className="row">
+                <h3 className="section-title">Frontend Development</h3>
+                {data &&
+                  data?.data
+                    .filter((skill) => skill.category === "FRONTEND")
+                    .map((skill) => (
+                      <div className="col-md-3 col-6 mb-4" key={skill.id}>
+                        <div className="skill-card frontend">
+                          {icons[skill.name] || (
+                            <FaHtml5 className="w-25 h-25" />
+                          )}
+                          <div className="skill-name">{skill.name}</div>
+                        </div>
                       </div>
-                    );
-                  })}
-                </Carousel>
-              )}
+                    ))}
+              </div>
+
+              {/* Backend Development Section */}
+              <div className="row">
+                <h3 className="section-title">Backend Development</h3>
+                {data &&
+                  data?.data
+                    .filter((skill) => skill.category === "BACKEND")
+                    .map((skill) => (
+                      <div className="col-md-3 col-6 mb-4" key={skill.id}>
+                        <div className="skill-card backend">
+                          {icons[skill.name] || (
+                            <FaNodeJs className="w-25 h-25" />
+                          )}
+                          <div className="skill-name">{skill.name}</div>
+                        </div>
+                      </div>
+                    ))}
+              </div>
+
+              {/* Others Section */}
+              <div className="row">
+                <h3 className="section-title">Others</h3>
+                {data &&
+                  data?.data
+                    .filter((skill) => skill.category === "OTHERS")
+                    .map((skill) => (
+                      <div className="col-md-3 col-6 mb-4" key={skill._id}>
+                        <div className="skill-card others">
+                          {icons[skill.name] || (
+                            <FaHtml5 className="skill-icon" />
+                          )}
+                          <div className="skill-name">{skill.name}</div>
+                        </div>
+                      </div>
+                    ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+      <img
+        className="background-image-left"
+        src={colorSharp}
+        alt="Decorative Background"
+      />
     </section>
   );
 };
