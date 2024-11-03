@@ -31,6 +31,9 @@ const skillType = [
   "daisyUI",
   "antd",
   "nextUI",
+  "framerMotion",
+  "reactHookForm",
+  "jwt",
 ];
 
 export const skillTypeOptions = skillType.map((item) => {

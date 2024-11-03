@@ -31,8 +31,11 @@ import {
   SiMui,
   SiReactrouter,
   SiNextui,
+  SiReacthookform,
+  SiJsonwebtokens,
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
+import { TbBrandFramerMotion } from "react-icons/tb";
 
 export const icons = {
   // Frontend Skills
@@ -52,6 +55,9 @@ export const icons = {
   ReactRouter: <SiReactrouter className="w-25 h-25" />,
   aamarpay: <FaAmazonPay className="w-25 h-25" />,
   nextUI: <SiNextui className="w-25 h-25" />,
+  framerMotion: <TbBrandFramerMotion className="w-25 h-25" />,
+  reactHookForm: <SiReacthookform className="w-25 h-25" />,
+  jwt: <SiJsonwebtokens className="w-25 h-25" />,
 
   // Backend Skills
   node: <FaNodeJs className="w-25 h-25" />,
