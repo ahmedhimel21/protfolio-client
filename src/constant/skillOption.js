@@ -30,6 +30,7 @@ const skillType = [
   "MUI",
   "daisyUI",
   "antd",
+  "nextUI",
 ];
 
 export const skillTypeOptions = skillType.map((item) => {

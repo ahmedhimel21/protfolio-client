@@ -26,12 +26,11 @@ import {
   SiVisualstudiocode,
   SiFigma,
   SiAngular,
-  // SiShadcnui,
   SiAntdesign,
   SiDaisyui,
   SiMui,
   SiReactrouter,
-  // SiZod,
+  SiNextui,
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
 
@@ -52,6 +51,7 @@ export const icons = {
   MUI: <SiMui className="w-25 h-25" />,
   ReactRouter: <SiReactrouter className="w-25 h-25" />,
   aamarpay: <FaAmazonPay className="w-25 h-25" />,
+  nextUI: <SiNextui className="w-25 h-25" />,
 
   // Backend Skills
   node: <FaNodeJs className="w-25 h-25" />,
