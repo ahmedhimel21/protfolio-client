@@ -6,7 +6,8 @@ import { icons } from "../constant/Icons";
 import "../styles/SkillSection.css";
 
 export const Skills = () => {
-  const { data } = useGetSkillsQuery(undefined);
+  const { data } = useGetSkillsQuery([{ name: "limit", value: 0 }]);
+  console.log(data);
 
   return (
     <section id="skills">
@@ -26,10 +27,10 @@ export const Skills = () => {
               <div className="row">
                 <h3 className="section-title">Frontend Development</h3>
                 {data &&
-                  data?.data
+                  data?.data?.data
                     .filter((skill) => skill.category === "FRONTEND")
                     .map((skill) => (
-                      <div className="col-md-3 col-6 mb-4" key={skill.id}>
+                      <div className="col-md-3 col-6 mb-4" key={skill._id}>
                         <div className="skill-card frontend">
                           {icons[skill.name] || (
                             <FaHtml5 className="w-25 h-25" />
@@ -44,10 +45,10 @@ export const Skills = () => {
               <div className="row">
                 <h3 className="section-title">Backend Development</h3>
                 {data &&
-                  data?.data
+                  data?.data?.data
                     .filter((skill) => skill.category === "BACKEND")
                     .map((skill) => (
-                      <div className="col-md-3 col-6 mb-4" key={skill.id}>
+                      <div className="col-md-3 col-6 mb-4" key={skill._id}>
                         <div className="skill-card backend">
                           {icons[skill.name] || (
                             <FaNodeJs className="w-25 h-25" />
@@ -62,7 +63,7 @@ export const Skills = () => {
               <div className="row">
                 <h3 className="section-title">Others</h3>
                 {data &&
-                  data?.data
+                  data?.data?.data
                     .filter((skill) => skill.category === "OTHERS")
                     .map((skill) => (
                       <div className="col-md-3 col-6 mb-4" key={skill._id}>

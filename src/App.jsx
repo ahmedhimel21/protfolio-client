@@ -7,6 +7,7 @@ import ProjectManagement from "./components/Dashboard/ProjectManagement";
 import BlogManagement from "./components/Dashboard/BlogManagement";
 import Login from "./pages/Login";
 import BlogDetails from "./pages/BlogDetails";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   const secret = import.meta.env.VITE_SECRET;
@@ -20,6 +21,7 @@ function App() {
       <Route path="/blog/:id" element={<BlogDetails></BlogDetails>}></Route>
       <Route path="/dashboard" element={<Login></Login>}></Route>
       <Route path={`/${secret}`} element={<Dashboard></Dashboard>}>
+        <Route path={`/${secret}`} element={<DashboardPage />} />
         <Route path="skill-management" element={<SkillManagement />} />
         <Route path="project-management" element={<ProjectManagement />} />
         <Route path="blog-management" element={<BlogManagement />} />

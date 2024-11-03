@@ -18,7 +18,8 @@ const SkillManagement = () => {
   const { data } = useGetSkillsQuery(undefined);
   // Filter out skillType where value already exists in dbSkillData
   const filteredSkillType = skillTypeOptions.filter(
-    (skill) => !data?.data.some((dbSkill) => dbSkill.name === skill.value)
+    (skill) =>
+      !data?.data?.data?.some((dbSkill) => dbSkill.name === skill.value)
   );
   const [createSkill] = useCreateSkillMutation();
 

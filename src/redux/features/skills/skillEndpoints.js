@@ -12,11 +12,37 @@ const skillEndpoints = baseApi.injectEndpoints({
       },
       invalidatesTags: ["skills"],
     }),
+    deleteSkill: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/skill/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["skills"],
+    }),
+    updateSkill: builder.mutation({
+      query: (args) => {
+        return {
+          url: `/skill/${args.key}`,
+          method: "PUT",
+          body: args?.updateData,
+        };
+      },
+      invalidatesTags: ["skills"],
+    }),
     getSkills: builder.query({
-      query: () => {
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item) => {
+            params.append(item.name, item.value);
+          });
+        }
         return {
           url: "/skill",
           method: "GET",
+          params: params,
         };
       },
       providesTags: ["skills"],
@@ -24,4 +50,9 @@ const skillEndpoints = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetSkillsQuery, useCreateSkillMutation } = skillEndpoints;
+export const {
+  useGetSkillsQuery,
+  useCreateSkillMutation,
+  useDeleteSkillMutation,
+  useUpdateSkillMutation,
+} = skillEndpoints;

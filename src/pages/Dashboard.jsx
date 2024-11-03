@@ -5,6 +5,7 @@ import {
   JavaScriptOutlined,
   ProfileOutlined,
   SignatureOutlined,
+  DashboardFilled,
 } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -13,6 +14,15 @@ import { NavLink } from "react-router-dom";
 const secret = import.meta.env.VITE_SECRET;
 
 const items = [
+  {
+    key: "Dashboard",
+    icon: React.createElement(DashboardFilled),
+    label: (
+      <NavLink to={`/${secret}`} style={{ textDecoration: "none" }}>
+        Dashboard
+      </NavLink>
+    ),
+  },
   {
     key: "Skill Management",
     icon: React.createElement(JavaScriptOutlined),
@@ -55,20 +65,9 @@ const Dashboard = () => {
   return (
     <Layout style={{ height: "100%" }}>
       <Sider
-        style={{
-          position: "sticky",
-          top: "0",
-          left: "0",
-          height: "100vh",
-        }}
         breakpoint="lg"
         collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
+        style={{ height: "100vh", position: "sticky", top: "0", left: "0" }}
       >
         <div
           style={{

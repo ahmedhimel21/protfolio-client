@@ -1,12 +1,13 @@
 import { Form, Select } from "antd";
 import { Controller } from "react-hook-form";
 
-const ReuseableSelect = ({ label, name, options, mode }) => {
+const ReuseableSelect = ({ label, name, options, mode, initialValue }) => {
   return (
     <Controller
+      defaultValue={initialValue}
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
+        <Form.Item initialValue={10000} label={label}>
           <Select
             mode={mode}
             size="large"
