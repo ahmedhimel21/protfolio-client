@@ -9,7 +9,10 @@ import TrackVisibility from "react-on-screen";
 import { useGetProjectsQuery } from "../redux/features/project/projectEndpoints";
 
 export const Projects = () => {
-  const { data } = useGetProjectsQuery(undefined);
+  const { data } = useGetProjectsQuery([
+    { name: "limit", value: 0 },
+    { name: "sort", value: "-createdAt" },
+  ]);
 
   return (
     <section className="project" id="projects">
@@ -53,16 +56,37 @@ export const Projects = () => {
                     >
                       <Tab.Pane eventKey="first">
                         <Row>
-                          {data?.data?.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
-                          })}
+                          {data?.data?.data?.length &&
+                            data?.data?.data
+                              ?.filter(
+                                (project) => project?.category === "MERN"
+                              )
+                              .map((project, index) => (
+                                <ProjectCard key={index} {...project} />
+                              ))}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <p>Coming...</p>
+                        <Row>
+                          {data?.data?.data?.length &&
+                            data?.data?.data
+                              ?.filter(
+                                (project) => project?.category === "REACT"
+                              )
+                              .map((project, index) => (
+                                <ProjectCard key={index} {...project} />
+                              ))}
+                        </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="third">
-                        <p>coming...</p>
+                        {data?.data?.data?.length &&
+                          data?.data?.data
+                            ?.filter(
+                              (project) => project?.category === "JAVASCRIPT"
+                            )
+                            .map((project, index) => (
+                              <ProjectCard key={index} {...project} />
+                            ))}
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>

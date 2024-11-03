@@ -7,7 +7,6 @@ import "../styles/SkillSection.css";
 
 export const Skills = () => {
   const { data } = useGetSkillsQuery([{ name: "limit", value: 0 }]);
-  console.log(data);
 
   return (
     <section id="skills">
