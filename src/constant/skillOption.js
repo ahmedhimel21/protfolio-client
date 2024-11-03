@@ -34,6 +34,7 @@ const skillType = [
   "framerMotion",
   "reactHookForm",
   "jwt",
+  "axiox",
 ];
 
 export const skillTypeOptions = skillType.map((item) => {
