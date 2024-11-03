@@ -13,10 +13,17 @@ const blogEndpoints = baseApi.injectEndpoints({
       invalidatesTags: ["blogs"],
     }),
     getBlogs: builder.query({
-      query: () => {
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item) => {
+            params.append(item.name, item.value);
+          });
+        }
         return {
           url: "/blog",
           method: "GET",
+          params: params,
         };
       },
       providesTags: ["blogs"],
@@ -30,6 +37,25 @@ const blogEndpoints = baseApi.injectEndpoints({
       },
       providesTags: ["blogs"],
     }),
+    deleteBlog: builder.mutation({
+      query: (id) => {
+        return {
+          url: `/blog/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["blogs"],
+    }),
+    updateBlog: builder.mutation({
+      query: (args) => {
+        return {
+          url: `/blog/${args.key}`,
+          method: "PUT",
+          body: args?.updateData,
+        };
+      },
+      invalidatesTags: ["blogs"],
+    }),
   }),
 });
 
@@ -37,4 +63,6 @@ export const {
   useGetBlogsQuery,
   useCreateBlogMutation,
   useGetSingleBlogQuery,
+  useDeleteBlogMutation,
+  useUpdateBlogMutation
 } = blogEndpoints;

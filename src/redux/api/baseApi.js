@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: "https://portfolio-server-nine-iota.vercel.app/api/v1", //production
-  baseUrl: "http://localhost:5000/api/v1", //local
+  baseUrl: "https://portfolio-server-nine-iota.vercel.app/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth?.token;

@@ -6,7 +6,10 @@ import { icons } from "../constant/Icons";
 import "../styles/SkillSection.css";
 
 export const Skills = () => {
-  const { data } = useGetSkillsQuery([{ name: "limit", value: 0 }]);
+  const { data } = useGetSkillsQuery([
+    { name: "limit", value: 0 },
+    { name: "sort", value: "-createdAt" },
+  ]);
 
   return (
     <section id="skills">

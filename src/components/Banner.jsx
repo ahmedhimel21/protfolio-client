@@ -16,7 +16,7 @@ export const Banner = () => {
   const toRotate = [
     "MERN Developer",
     "Cyber security specialist",
-    "Web pentester",
+    "Web penetration testing",
   ];
   const period = 2000;
 
