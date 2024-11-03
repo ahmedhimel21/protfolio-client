@@ -10,6 +10,7 @@ const blogEndpoints = baseApi.injectEndpoints({
           body: args,
         };
       },
+      invalidatesTags: ["blogs"],
     }),
     getBlogs: builder.query({
       query: () => {
@@ -18,8 +19,22 @@ const blogEndpoints = baseApi.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["blogs"],
+    }),
+    getSingleBlog: builder.query({
+      query: (id) => {
+        return {
+          url: `/blog/${id}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["blogs"],
     }),
   }),
 });
 
-export const { useGetBlogsQuery, useCreateBlogMutation } = blogEndpoints;
+export const {
+  useGetBlogsQuery,
+  useCreateBlogMutation,
+  useGetSingleBlogQuery,
+} = blogEndpoints;

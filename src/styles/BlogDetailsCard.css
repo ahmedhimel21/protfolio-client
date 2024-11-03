@@ -1,0 +1,97 @@
+/* Card container styling */
+.blog-details-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Card Styling */
+.blog-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Image container styling */
+.blog-img-container {
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.blog-img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-img {
+  transform: scale(1.05);
+}
+
+/* Card Body Styling */
+.blog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  margin: 5px 0 10px;
+  display: flex;
+  align-items: center;
+  color: gray;
+}
+
+.blog-date svg {
+  margin-right: 5px;
+}
+
+.blog-content {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+/* Button Styling */
+.read-more-btn {
+  background-color: #007bff;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .blog-details-card {
+    max-width: 100%;
+  }
+
+  .blog-title {
+    font-size: 1.3rem;
+  }
+
+  .blog-content {
+    font-size: 0.9rem;
+  }
+
+  .read-more-btn {
+    font-size: 0.9rem;
+  }
+}
