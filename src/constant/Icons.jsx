@@ -33,6 +33,7 @@ import {
   SiNextui,
   SiReacthookform,
   SiJsonwebtokens,
+  SiAxios,
 } from "react-icons/si";
 import { DiMysql } from "react-icons/di";
 import { TbBrandFramerMotion } from "react-icons/tb";
@@ -69,6 +70,7 @@ export const icons = {
   sql: <DiMysql className="w-25 h-25" />, // SQL (MySQL)
   postgresql: <SiPostgresql className="w-25 h-25" />, // PostgreSQL
   prisma: <SiPrisma className="w-25 h-25" />, // Prisma
+  axios: <SiAxios className="w-25 h-25" />, // Prisma
 
   // Others (Tools)
   docker: <FaDocker className="w-25 h-25" />,
